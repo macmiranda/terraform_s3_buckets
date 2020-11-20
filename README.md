@@ -2,7 +2,7 @@
 
 ## Getting started
 
-When cloning this repository, use the option `-recursive` to initialize and update the submodule.
+When cloning this repository, use the option `--recursive` to initialize and update the submodule.
 
 Configure an IAM user with programatic access only and apply the following policy to that account:
 

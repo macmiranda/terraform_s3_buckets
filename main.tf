@@ -35,6 +35,7 @@ data "aws_iam_policy_document" "bucket_policy" {
 
     resources = [
       "arn:aws:s3:::${each.value.bucket}",
+      "arn:aws:s3:::${each.value.bucket}/*",
     ]
   }
 }
@@ -46,11 +47,11 @@ module "s3_bucket" {
   acl           = each.value.acl
   force_destroy = each.value.force_destroy
   attach_policy = each.value.attach_policy
+  policy        = data.aws_iam_policy_document.bucket_policy[each.key].json
   tags          = each.value.tags
   versioning    = each.value.versioning
   lifecycle_rule = each.value.lifecycle_rule
   object_lock_configuration = each.value.object_lock_configuration
-  policy        = data.aws_iam_policy_document.bucket_policy[each.key].json
   server_side_encryption_configuration = {
     rule = {
       apply_server_side_encryption_by_default = {

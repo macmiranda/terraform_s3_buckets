@@ -1,7 +1,7 @@
 buckets =  {
   hourly = { 
     bucket        = "my-report-project-hourly-bucket",
-    bucket_policy_actions = [ "s3:*", ],
+    bucket_policy_actions = [ "s3:PutObject","s3:GetObject","s3:GetObjectVersion","s3:ListBucket" ],
     acl           = "private",
     force_destroy = true,
     attach_policy = true,
@@ -60,7 +60,7 @@ buckets =  {
   },
   daily = { 
     bucket        = "my-report-project-daily-bucket",
-    bucket_policy_actions = [ "s3:*", ],
+    bucket_policy_actions = [ "s3:PutObject","s3:GetObject","s3:GetObjectVersion","s3:ListBucket" ],
     acl           = "private",
     force_destroy = true,
     attach_policy = true,
@@ -119,7 +119,7 @@ buckets =  {
   },
   weekly = { 
     bucket        = "my-report-project-weekly-bucket",
-    bucket_policy_actions = [ "s3:*", ],
+    bucket_policy_actions = [ "s3:PutObject","s3:GetObject","s3:GetObjectVersion","s3:ListBucket" ],
     acl           = "private",
     force_destroy = true,
     attach_policy = true,

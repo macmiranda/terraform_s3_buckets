@@ -140,6 +140,7 @@ For each bucket you can define the following variables:
     ignore_public_acls      = true,
     restrict_public_buckets = true,
 ```
+See an example [here](https://github.com/macmiranda/friday_s3_buckets/blob/main/examples/terraform.tfvars.example).
 
 For more details, visit the [Terraform AWS Provider Documentation](https://registry.terraform.io/providers/hashicorp/aws/latest/docs)
 

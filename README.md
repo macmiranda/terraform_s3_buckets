@@ -49,7 +49,7 @@ You can configure your AWS global settings in `aws.tf`
 
 Credentials can be provided in this file, via Environment Variables or via a Shared Credentials File. For more information see the [Terraform AWS Provider Documentation](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#authentication)
 
-## Getting Started
+## What's included
 
 Configuration in this directory creates as many S3 buckets as declared in the `terraform.tfvars`. Each bucket can have its own configuration for the items listed below:
 

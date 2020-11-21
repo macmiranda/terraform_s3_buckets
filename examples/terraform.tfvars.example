@@ -1,0 +1,179 @@
+buckets =  {
+  hourly = { 
+    bucket        = "my-report-project-hourly-bucket",
+    bucket_policy_actions = [ "s3:*", ],
+    acl           = "private",
+    force_destroy = true,
+    attach_policy = true,
+    tags          = {
+        project = "my_report_project",
+        frequency = "hourly",
+    },
+    versioning = {
+        enabled = true
+    },
+    lifecycle_rule = [
+        {
+        id      = "root"
+        enabled = true
+        prefix  = "/"
+
+        tags = {
+            rule      = "root"
+            autoclean = "true"
+        }
+
+        transition = [
+            {
+            days          = 30
+            storage_class = "ONEZONE_IA"
+            }, {
+            days          = 60
+            storage_class = "GLACIER"
+            }
+        ]
+
+        expiration = {
+            days = 90
+        }
+
+        noncurrent_version_expiration = {
+            days = 30
+        }
+        },
+    ],
+
+    object_lock_configuration = {
+        object_lock_enabled = "Enabled"
+        rule = {
+        default_retention = {
+            mode  = "COMPLIANCE"
+            years = 5
+        }
+        }
+    },
+    # S3 bucket-level Public Access Block configuration
+    block_public_acls       = true,
+    block_public_policy     = true,
+    ignore_public_acls      = true,
+    restrict_public_buckets = true,
+  },
+  daily = { 
+    bucket        = "my-report-project-daily-bucket",
+    bucket_policy_actions = [ "s3:ListBucket", ],
+    acl           = "private",
+    force_destroy = true,
+    attach_policy = true,
+    tags          = {
+        project = "my_report_project",
+        frequency = "daily",
+    },
+    versioning = {
+        enabled = true
+    },
+    lifecycle_rule = [
+        {
+        id      = "root"
+        enabled = true
+        prefix  = "/"
+
+        tags = {
+            rule      = "root"
+            autoclean = "true"
+        }
+
+        transition = [
+            {
+            days          = 30
+            storage_class = "ONEZONE_IA"
+            }, {
+            days          = 60
+            storage_class = "GLACIER"
+            }
+        ]
+
+        expiration = {
+            days = 90
+        }
+
+        noncurrent_version_expiration = {
+            days = 30
+        }
+        },
+    ],
+
+    object_lock_configuration = {
+        object_lock_enabled = "Enabled"
+        rule = {
+        default_retention = {
+            mode  = "COMPLIANCE"
+            years = 5
+        }
+        }
+    },
+    # S3 bucket-level Public Access Block configuration
+    block_public_acls       = true,
+    block_public_policy     = true,
+    ignore_public_acls      = true,
+    restrict_public_buckets = true,
+  },
+  weekly = { 
+    bucket        = "my-report-project-weekly-bucket",
+    bucket_policy_actions = [ "s3:ListBucket", ],
+    acl           = "private",
+    force_destroy = true,
+    attach_policy = true,
+    tags          = {
+        project = "my_report_project",
+        frequency = "weekly",
+    },
+    versioning = {
+        enabled = true
+    },
+    lifecycle_rule = [
+        {
+        id      = "root"
+        enabled = true
+        prefix  = "/"
+
+        tags = {
+            rule      = "root"
+            autoclean = "true"
+        }
+
+        transition = [
+            {
+            days          = 30
+            storage_class = "ONEZONE_IA"
+            }, {
+            days          = 60
+            storage_class = "GLACIER"
+            }
+        ]
+
+        expiration = {
+            days = 90
+        }
+
+        noncurrent_version_expiration = {
+            days = 30
+        }
+        },
+    ],
+
+    object_lock_configuration = {
+        object_lock_enabled = "Enabled"
+        rule = {
+        default_retention = {
+            mode  = "COMPLIANCE"
+            years = 5
+        }
+        }
+    },
+    # S3 bucket-level Public Access Block configuration
+    block_public_acls       = true,
+    block_public_policy     = true,
+    ignore_public_acls      = true,
+    restrict_public_buckets = true,
+  },
+}
